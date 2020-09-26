@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box1{
+				border: solid 1px red;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="box1" width="600" height="600">
+			您的浏览器不支持canvas.请升级您的浏览器。
+		</canvas>
+		<script type="text/javascript">
+			var canvas1=document.querySelector("#box1");
+			var ctx=canvas1.getContext("2d");
+			var img=new Image();
+			img.src="img/cat.png";
+			img.onload=function(){//等图片加载完毕之后开始绘图
+				//ctx.drawImage(img,0,0,600,300);//参数依次为：图片对象，图片左上角在canvas里面的x坐标，图片左上角在canvas里面的y坐标，设置图片的宽度，设置图片的高度
+				ctx.drawImage(img,100,50,300,200,0,0,300,150);
+			}
+			
+		</script>
+	</body>
+</html>

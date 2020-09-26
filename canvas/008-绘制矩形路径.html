@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding:0;
+			}
+			#box1{
+				border: solid 1px red;
+				position: absolute;
+				left: 100px;
+				top:50px;				
+			}
+		</style>
+	</head>
+	<body>
+		<!--绘制出来的图像是位图，不是矢量图-->
+		<canvas id="box1" width="500" height="300">			
+		</canvas>
+		<script type="text/javascript">
+			var objbox1=document.querySelector("#box1");//获取canvas对象 相当于画布
+			var context1=objbox1.getContext("2d");//设置绘图环境 相当于画笔
+			context1.lineWidth=2;//设置直线的宽度
+			context1.strokeStyle="#00ff00";//设置线条的颜色
+			context1.rect(20,20,120,60);
+			//context1.lineCap="square";//设置端点的样式，默认是butt，圆角round
+			context1.stroke();//执行绘图操作
+			context1.fillStyle="#FF0000";//指定填充颜色
+			context1.fillRect(20,20,120,60);//执行填充操作
+		</script>
+	</body>
+</html>

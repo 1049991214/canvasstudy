@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box1{
+				
+			}
+		</style>
+	</head>
+	<body>
+	<canvas id="box1" width="600" height="600"></canvas>
+	<script type="text/javascript">
+		var canvas1=document.querySelector("#box1");
+		var context1=canvas1.getContext("2d");
+		//画圆参数顺序依次为：圆心的x坐标，圆心的y坐标，圆的半径，圆弧开始的度数（弧度），（弧度），顺时针方向（true）/逆时针方向false
+		context1.arc(300,300,100,(0/180)*Math.PI,(360/180)*Math.PI,false);//画圆
+		context1.lineWidth=10;//边框的宽度
+		context1.strokeStyle="#FF8C00";//描边的颜色
+		context1.closePath();//结束路径
+		context1.stroke();//对路径描边
+		context1.fillStyle="green";//设置填充颜色
+		context1.fill();//执行填充颜色的操作
+	</script>
+	</body>
+</html>

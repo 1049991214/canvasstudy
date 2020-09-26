@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="box1" width="900" height="400"></canvas>
+		<script type="text/javascript">
+			var canvas1=document.querySelector("#box1");
+			var ctx=canvas1.getContext("2d");
+			
+			//绘制正弦函数函数的坐标系
+			ctx.save();
+			ctx.strokeStyle="#000";
+			ctx.lineWidth=2;
+			ctx.beginPath();
+			ctx.moveTo(2,200);
+			ctx.lineTo(800,200);
+			ctx.stroke();
+			ctx.closePath();
+			ctx.beginPath();
+			ctx.moveTo(2,-200);
+			ctx.lineTo(2,400);
+			ctx.stroke();
+			ctx.closePath();
+			ctx.restore();
+			
+			//y=k*sin(x);
+			//绘制正弦函数
+			ctx.save();
+			ctx.translate(0,200);
+			ctx.moveTo(0,0);
+			ctx.strokeStyle="green";
+			for (var i=0;i<=725;i++) {
+				var x=(i/180)*Math.PI*50;
+				var y=-100*Math.sin((i/180)*Math.PI);
+				ctx.lineTo(x,y);
+			}
+			ctx.stroke();
+			
+			//绘制坐标系x轴的箭头
+			ctx.beginPath();
+			ctx.strokeStyle="#000";
+			ctx.moveTo(790,-2);
+			ctx.lineTo(800,0);
+			ctx.lineTo(790,2);
+			ctx.stroke();
+			ctx.closePath();
+			ctx.fillText("x",790,15);
+			
+			//绘制坐标系y轴的箭头
+			ctx.beginPath();
+			ctx.strokeStyle="#000";
+			ctx.moveTo(0,-190);
+			ctx.lineTo(2,-200);
+			ctx.lineTo(4,-190);
+			ctx.stroke();
+			ctx.fillText("y",15,-180);
+			ctx.font="12px 微软雅黑";
+			ctx.fillText("o",5,15);
+			ctx.closePath();
+			
+			
+			ctx.restore();
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box1{
+				border: solid 1px red;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="box1" width="600" height="600">
+			您的浏览器不支持canvas.请升级您的浏览器。
+		</canvas>
+		<script type="text/javascript">
+			var canvas1=document.querySelector("#box1");
+			var ctx=canvas1.getContext("2d");
+			ctx.fillText("夜鹰教程网 www.yyjcw.com ",10,20);		
+			ctx.translate(100,150);
+			ctx.fillText("技术QQ：1417 596 61 ",10,20);			
+			ctx.beginPath();			
+			var clg=ctx.createRadialGradient(300,300,30,300,300,200);
+			clg.addColorStop(0.2,"red");
+			clg.addColorStop(1,"blue");
+			ctx.fillStyle=clg;
+			ctx.globalAlpha="0.5";
+			
+			ctx.fillRect(0,0,600,600);
+		</script>
+	</body>
+</html>

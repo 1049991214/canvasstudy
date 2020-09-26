@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding:0;
+			}
+			#box1{
+				
+				position: absolute;
+				left:0px;
+				top:0px;	
+				background-color: aquamarine;		
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="box1" width="500" height="500">			
+		</canvas>
+		<script type="text/javascript">
+			var can1=document.querySelector("#box1");//获取canvas对象 相当于画布
+			var ctx=can1.getContext("2d");//设置绘图环境 相当于画笔
+			
+			function drawloding(r)//r代表loding旋转的角度
+			{
+				ctx.clearRect(0,0,can1.width,can1.height);
+				ctx.beginPath();
+				ctx.strokeStyle="white";
+				ctx.lineWidth=2;
+				ctx.arc(250,250,100,0,2*Math.PI,false);
+				ctx.stroke();
+				
+				ctx.beginPath();
+				ctx.arc(250,250,95,0,2*Math.PI,false);
+				ctx.stroke();
+				
+				ctx.beginPath();
+				ctx.arc(250,250,105,0,2*Math.PI,false);
+				ctx.stroke();
+				
+				ctx.beginPath();
+				ctx.save();
+				ctx.lineWidth=5;
+				ctx.lineCap="round";
+				ctx.arc(250,250,100,0,(r/180)*Math.PI,false);
+				ctx.stroke();
+				ctx.closePath();	
+				ctx.restore();
+				ctx.save();
+				var txtstr=parseInt(r*100/360)+"%";
+				ctx.beginPath();
+				ctx.font="lighter 18px 微软雅黑"
+				ctx.lineWidth=1;
+				ctx.strokeText(txtstr,240,260);
+				ctx.restore();
+				
+			}
+			drawloding(0);
+			var i=0;
+			var timer=setInterval(function(){
+				i++;
+				if(i>360)
+				{
+					clearInterval(timer);
+				}
+				drawloding(i);
+			},30)
+			
+			//
+			
+		</script>
+	</body>
+</html>

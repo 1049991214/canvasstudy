@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="box1" width="800" height="400"></canvas>
+		<script type="text/javascript">
+			var can1=document.querySelector("#box1");
+			var ctx=can1.getContext("2d");
+			
+			ctx.save();
+			ctx.translate(10,200)
+			
+			//坐标系x轴线
+			ctx.beginPath();
+			ctx.moveTo(0,0)
+			ctx.lineTo(700,0);
+			ctx.stroke();
+			ctx.closePath();
+			
+			//绘制文字
+			ctx.font="16px 微软雅黑";
+			ctx.fillText("x",700-20,-10);
+			ctx.fillText("y",20,-170);
+			
+			ctx.fillText("o",0,15);
+			//坐标系y轴线
+			ctx.beginPath();
+			ctx.moveTo(0,0)
+			ctx.lineTo(0,-180);
+			ctx.stroke();
+			ctx.closePath();
+			
+			//x轴箭头
+			ctx.beginPath();
+			ctx.moveTo(700-10,-5)
+			ctx.lineTo(700,0);
+			ctx.lineTo(700-10,5);
+			ctx.stroke();
+			ctx.closePath();
+			
+			//y轴箭头
+			ctx.beginPath();
+			ctx.moveTo(-5,-(180-10))
+			ctx.lineTo(0,-180);
+			ctx.lineTo(5,-(180-10));
+			ctx.stroke();
+			ctx.closePath();
+			
+			
+			
+			for (var i=0;i<8;i++) {
+				var r=Math.random()*150;
+				var rate=parseInt((r/150)*100)+"%";
+				
+				var linestyle=ctx.createLinearGradient(i*60+20,0,i*60+20,-r);
+				linestyle.addColorStop(0,"green");
+				linestyle.addColorStop(1,"red");
+				ctx.fillStyle=linestyle;				
+				ctx.fillText(rate,i*60+25,-r-5);
+				ctx.fillRect(i*60+20,-r,40,r);
+			}
+			
+			
+			ctx.restore();
+		
+		</script>
+	</body>
+</html>

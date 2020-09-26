@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box1{
+				border: solid 1px red;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="box1" width="600" height="600">
+			您的浏览器不支持canvas.请升级您的浏览器。
+		</canvas>
+		<script type="text/javascript">
+			var canvas1=document.querySelector("#box1");
+			var ctx=canvas1.getContext("2d");
+			ctx.fillStyle="red";
+			ctx.translate(213,0);
+			ctx.rotate((45/180)*Math.PI);
+			ctx.fillRect(0,0,300,300);
+			
+		</script>
+	</body>
+</html>
