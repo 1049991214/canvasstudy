@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box1{
+				border: solid 1px #eee;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="box1" width="500" height="500"></canvas>
+		<script type="text/javascript">
+			var can1=document.querySelector("#box1");
+			var ctx=can1.getContext("2d");
+			//(0,0) (500,500)
+			ctx.moveTo(0,0);
+			ctx.quadraticCurveTo(350,50,500,500);
+			ctx.stroke();
+		</script>
+	</body>
+</html>
